@@ -53,10 +53,10 @@ const CartItem = ({ cartItem }) => {
         <div className="flex flex-col gap-2 sm:ml-6">
           <Select value={String(amount)} onValueChange={handleAmount}>
             <SelectTrigger className="w-20">
-              <SelectValue />
+              <SelectValue placeholder={amount} />
             </SelectTrigger>
             <SelectContent>
-              {generateAmountOptions(amount + 5).map((opt) => (
+              {generateAmountOptions(20).map((opt) => (
                 <SelectItem key={opt} value={String(opt)}>
                   {opt}
                 </SelectItem>
