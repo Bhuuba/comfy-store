@@ -28,9 +28,8 @@ const Hero = () => {
           Ми змінюємо спосіб, у який люди роблять покупки.
         </h1>
         <p className="mt-8 max-w-xl text-lg leading-8 text-muted-foreground">
-          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
-          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat
-          aliqua.
+          Ми робимо покупки простими та приємними, пропонуючи лише якісні товари
+          від перевірених виробників.
         </p>
         <div className="mt-10">
           <Link to="products" className="btn btn-primary">

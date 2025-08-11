@@ -18,13 +18,13 @@ const userSlice = createSlice({
       const user = { ...action.payload.user, token: action.payload.jwt };
       state.user = user;
       localStorage.setItem("user", JSON.stringify(user));
-      toast.success("Вход выполнен успешно");
+      toast.success("Ви увійшли в свій акаунт.");
     },
     logoutUser: (state) => {
       state.user = null;
       // localStorage.clear()
       localStorage.removeItem("user");
-      toast.success("Logged out successfully");
+      toast.success("Ви вийшли з акаунта.");
     },
   },
 });

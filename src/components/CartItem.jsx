@@ -41,7 +41,7 @@ const CartItem = ({ cartItem }) => {
           <h3 className="capitalize font-medium">{title}</h3>
           <p className="text-sm text-muted-foreground">{company}</p>
           <div className="flex items-center gap-2 mt-2">
-            <span className="text-sm">Color:</span>
+            <span className="text-sm">Колір:</span>
             <Badge
               style={{ backgroundColor: productColor }}
               className="w-4 h-4 p-0"
@@ -68,7 +68,7 @@ const CartItem = ({ cartItem }) => {
             className="text-red-500 p-0 h-auto"
             onClick={removeItemFromTheCart}
           >
-            Remove
+            Видалити
           </Button>
         </div>
 

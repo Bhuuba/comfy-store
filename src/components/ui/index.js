@@ -6,6 +6,7 @@ export { Label } from "./label";
 export { Badge } from "./badge";
 export { Separator } from "./separator";
 export { Toaster } from "./sonner";
+export { Alert, AlertDescription } from "./alert";
 export { Sheet, SheetTrigger, SheetContent } from "./sheet";
 export {
   DropdownMenu,
@@ -29,3 +30,12 @@ export {
   SelectContent,
   SelectItem,
 } from "./select";
+
+export {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "./table";

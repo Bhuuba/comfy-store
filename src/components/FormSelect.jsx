@@ -18,7 +18,7 @@ const FormSelect = ({ label, name, list, defaultValue }) => {
           id={name}
           className="h-8 w-full border border-gray-300/30 rounded-md shadow-sm focus:ring-2 focus:ring-primary"
         >
-          <SelectValue placeholder={`Select ${label}`} />
+          <SelectValue placeholder={`${label}`} />
         </SelectTrigger>
         <SelectContent>
           {list.map((item) => (
