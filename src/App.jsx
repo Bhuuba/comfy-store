@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { ThemeProvider, ErrorElement } from "./components";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ThemeProvider, ErrorElement } from "./components";
 import { store } from "./store";
 import {
   HomeLayout,
@@ -16,14 +16,12 @@ import {
   Orders,
 } from "./pages";
 // loaders
-// eslint-disable-next-line no-unused-vars
 import { loader as landingLoader } from "./pages/Landing";
 import { loader as singleProductLoader } from "./pages/SingleProduct";
 import { loader as productsLoader } from "./pages/Products";
 import { loader as checkoutLoader } from "./pages/Checkout";
 import { loader as ordersLoader } from "./pages/Orders";
 // actions
-// import { action as registerAction } from "./pages/Register";
 import { action as loginAction } from "./pages/Login";
 import { action as registerAction } from "./pages/Register";
 import { action as checkoutAction } from "./components/CheckoutForm";
@@ -46,19 +44,19 @@ const router = createBrowserRouter([
         index: true,
         element: <Landing />,
         errorElement: <ErrorElement />,
-        loader: landingLoader,
+        loader: landingLoader(queryClient),
       },
       {
         path: "products",
         element: <Products />,
         errorElement: <ErrorElement />,
-        loader: productsLoader,
+        loader: productsLoader(queryClient),
       },
       {
         path: "products/:id",
         element: <SingleProduct />,
         errorElement: <ErrorElement />,
-        loader: singleProductLoader,
+        loader: singleProductLoader(queryClient),
       },
       {
         path: "cart",
@@ -97,9 +95,11 @@ const router = createBrowserRouter([
 const App = () => {
   return (
     <>
-      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-        <RouterProvider router={router} />
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+          <RouterProvider router={router} />
+        </ThemeProvider>
+      </QueryClientProvider>
     </>
   );
 };
