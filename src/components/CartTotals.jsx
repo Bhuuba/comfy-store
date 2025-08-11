@@ -10,22 +10,22 @@ const CartTotals = () => {
       <div className="card-body">
         {/* SUBTOTAL */}
         <p className="flex justify-between text-xs border-b border-base-300 pb-2">
-          <span>Subtotal</span>
+          <span>Підсумок</span>
           <span className="font-medium">{formatPrice(cartTotal)}</span>
         </p>
         {/* SHIPPING */}
         <p className="flex justify-between text-xs border-b border-base-300 pb-2">
-          <span>Shipping</span>
+          <span>Доставка</span>
           <span className="font-medium">{formatPrice(shipping)}</span>
         </p>
         {/* Tax */}
         <p className="flex justify-between text-xs border-b border-base-300 pb-2">
-          <span>Tax</span>
+          <span>ПДВ</span>
           <span className="font-medium">{formatPrice(tax)}</span>
         </p>
         {/* Total */}
         <p className="mt-4 flex justify-between text-sm  pb-2">
-          <span className="font-bold">Order Total</span>
+          <span className="font-bold">Загальна сума</span>
           <span className="font-bold">{formatPrice(orderTotal)}</span>
         </p>
       </div>

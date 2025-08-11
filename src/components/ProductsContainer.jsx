@@ -19,7 +19,7 @@ const ProductsContainer = () => {
       {/* HEADER */}
       <div className="mt-8 mb-6 flex items-center justify-between border-b border-border pb-4">
         <h4 className="text-sm font-medium text-muted-foreground">
-          {totalProducts} product{totalProducts !== 1 && "s"}
+          {totalProducts} товар{totalProducts !== 1 && "ів"}
         </h4>
         <div className="flex gap-2">
           <Button
@@ -45,7 +45,7 @@ const ProductsContainer = () => {
       <div>
         {totalProducts === 0 ? (
           <h5 className="mt-16 text-xl font-medium text-muted-foreground">
-            Sorry, no products matched your search...
+            Вибачте, за вашим запитом нічого не знайдено...
           </h5>
         ) : layout === "grid" ? (
           <ProductsGrid />

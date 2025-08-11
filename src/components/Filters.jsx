@@ -11,14 +11,14 @@ const Filters = () => {
       {/* SEARCH */}
       <FormInput
         type="search"
-        label="Search product"
+        label="Пошук товару"
         name="search"
         defaultValue={search}
         className="h-8"
       />
       {/* CATEGORIES */}
       <FormSelect
-        label="Select category"
+        label="Оберіть категорію"
         name="category"
         list={meta.categories}
         defaultValue={category}
@@ -26,7 +26,7 @@ const Filters = () => {
       />
       {/* COMPANIES */}
       <FormSelect
-        label="Select company"
+        label="Оберіть виробника"
         name="company"
         list={meta.companies}
         defaultValue={company}
@@ -34,22 +34,22 @@ const Filters = () => {
       />
       {/* ORDER */}
       <FormSelect
-        label="Sort by"
+        label="Сортувати за"
         name="order"
-        list={["a-z", "z-a", "high", "low"]}
+        list={["а-я", "я-а", "дорогі", "дешеві"]}
         defaultValue={order}
         size="select-sm"
       />
       {/* PRICE */}
       <FormRange
-        label="Select price"
+        label="Оберіть ціну"
         name="price"
         price={price}
         size="range-sm"
       />
       {/* SHIPPING */}
       <FormCheckbox
-        label="Free shipping"
+        label="Безкоштовна доставка"
         name="shipping"
         defaultValue={shipping}
         size="checkbox-sm"
@@ -61,11 +61,11 @@ const Filters = () => {
         size="sm"
         className="w-full sm:w-auto"
       >
-        Search
+        Пошук
       </Button>
       <Link to="/products" className="w-full sm:w-auto">
         <Button variant="secondary" size="sm" className="w-full sm:w-auto">
-          Reset
+          Скинути
         </Button>
       </Link>
     </Form>

@@ -12,7 +12,7 @@ import {
 import { CartItemsList, SectionTitle, CartTotals } from "../components";
 
 const Cart = () => {
-  const user = null;
+  const { user } = useSelector((state) => state.userState);
   const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
 
   if (numItemsInCart === 0) {
@@ -20,13 +20,13 @@ const Cart = () => {
       <Card className="max-w-lg mx-auto mt-12 p-6">
         <CardHeader>
           <CardTitle className="text-center text-lg font-semibold">
-            Your cart is empty 🛒
+            Ваш кошик порожній 🛒
           </CardTitle>
         </CardHeader>
         <CardFooter className="flex justify-center">
           <Link to="/" className="w-full">
             <Button className="w-full" variant="default">
-              Go Shopping
+              Перейти до покупок
             </Button>
           </Link>
         </CardFooter>
@@ -39,7 +39,7 @@ const Cart = () => {
       <div className="lg:col-span-8">
         <Card>
           <CardHeader>
-            <CardTitle>Shopping Cart</CardTitle>
+            <CardTitle>Кошик покупок</CardTitle>
           </CardHeader>
           <CardContent>
             <CartItemsList />
@@ -50,7 +50,7 @@ const Cart = () => {
       <div className="lg:col-span-4">
         <Card>
           <CardHeader>
-            <CardTitle>Order Summary</CardTitle>
+            <CardTitle>Підсумок замовлення</CardTitle>
           </CardHeader>
           <CardContent>
             <CartTotals />
@@ -59,11 +59,11 @@ const Cart = () => {
           <CardFooter>
             {user ? (
               <Link to="/checkout" className="w-full">
-                <Button className="w-full">Proceed to checkout</Button>
+                <Button className="w-full">Оформити замовлення</Button>
               </Link>
             ) : (
               <Link to="/login" className="w-full">
-                <Button className="w-full">Please login</Button>
+                <Button className="w-full">Увійдіть в обліковий запис</Button>
               </Link>
             )}
           </CardFooter>

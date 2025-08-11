@@ -23,7 +23,7 @@ const SingleProduct = () => {
   const { product } = useLoaderData();
 
   if (!product || !product.attributes) {
-    return <section className="py-8 px-4">Product not found</section>;
+    return <section className="py-8 px-4">Товар не знайдено</section>;
   }
 
   const { image, title, price, description, colors, company } =
@@ -57,11 +57,11 @@ const SingleProduct = () => {
       {/* breadcrumbs */}
       <div className="text-sm mb-4 text-muted-foreground">
         <Link to="/" className="hover:underline">
-          Home
+          Головна
         </Link>{" "}
         /{" "}
         <Link to="/products" className="hover:underline ml-1">
-          Products
+          Товари
         </Link>
       </div>
 
@@ -84,13 +84,13 @@ const SingleProduct = () => {
 
           {/* colors */}
           <div className="mt-6">
-            <h4 className="text-sm font-medium mb-2">Colors</h4>
+            <h4 className="text-sm font-medium mb-2">Кольори</h4>
             <div className="flex items-center gap-2">
               {(Array.isArray(colors) ? colors : []).map((color) => (
                 <button
                   key={color}
                   onClick={() => setProductColor(color)}
-                  aria-label={`Select color ${color}`}
+                  aria-label={`Вибрати колір ${color}`}
                   className={`w-6 h-6 rounded-full border transition-all duration-200 ${
                     color === productColor
                       ? "border-2 border-primary shadow"
@@ -104,7 +104,7 @@ const SingleProduct = () => {
 
           {/* amount */}
           <div className="mt-6 max-w-[150px]">
-            <h4 className="text-sm font-medium mb-2">Amount</h4>
+            <h4 className="text-sm font-medium mb-2">Кількість</h4>
             <Select value={amount} onValueChange={setAmount}>
               <SelectTrigger>
                 <SelectValue placeholder="1" />
@@ -121,7 +121,7 @@ const SingleProduct = () => {
 
           {/* add to bag */}
           <div className="mt-8">
-            <Button onClick={addToCart}>Add to bag</Button>
+            <Button onClick={addToCart}>Додати в кошик</Button>
           </div>
         </div>
       </div>

@@ -25,7 +25,7 @@ const Hero = () => {
       {/* Text content */}
       <div>
         <h1 className="max-w-2xl text-4xl font-bold tracking-tight sm:text-6xl">
-          We’re changing the way people shop.
+          Ми змінюємо спосіб, у який люди роблять покупки.
         </h1>
         <p className="mt-8 max-w-xl text-lg leading-8 text-muted-foreground">
           Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
@@ -34,7 +34,7 @@ const Hero = () => {
         </p>
         <div className="mt-10">
           <Link to="products" className="btn btn-primary">
-            Our Products
+            Наші товари
           </Link>
         </div>
       </div>
@@ -67,7 +67,7 @@ const Hero = () => {
           </motion.div>
         </motion.div>
         <p className="text-sm text-muted-foreground mt-2 text-center">
-          Drag to explore →
+          Перетягни, щоб переглянути →
         </p>
       </div>
     </div>

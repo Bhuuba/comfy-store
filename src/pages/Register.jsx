@@ -10,56 +10,98 @@ import {
   CardHeader,
   CardTitle,
 } from "../components";
-import { Form, Link } from "react-router-dom";
+import { Form, redirect, Link } from "react-router-dom";
+import { customFetch } from "../utils";
+import { toast } from "sonner";
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const action = async ({ request }) => {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+
+  try {
+    const response = await customFetch.post("/auth/local/register", data);
+
+    // Check response
+    if (!response?.data) {
+      throw new Error("Invalid response from server");
+    }
+
+    toast.success("Обліковий запис успішно створено");
+    return redirect("/login");
+  } catch (error) {
+    const errorMessage =
+      error?.response?.data?.error?.message ||
+      error.message ||
+      "Будь ласка, перевірте введені дані";
+
+    toast.error(errorMessage);
+    return null;
+  }
+};
+
 function Register() {
   return (
     <main className="min-h-screen flex items-center justify-center p-4">
       <Card className="w-full max-w-sm ">
         <CardHeader>
-          <CardTitle>Register to your account</CardTitle>
+          <CardTitle>Створити обліковий запис</CardTitle>
           <CardDescription>
-            Enter your email below to Register to your account
+            Введіть свою електронну пошту для створення облікового запису
           </CardDescription>
-          <CardAction>
-            <Button variant="link">
-              <Link to="/login">Login</Link>
-            </Button>
-          </CardAction>
         </CardHeader>
         <CardContent>
           <Form method="POST">
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
-                <Label htmlFor="email">Username</Label>
-                <FormInput id="username" type="username" name="username" />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="username">Ім'я користувача</Label>
                 <FormInput
-                  id="email"
-                  type="email"
-                  name="identifier"
-                  defaultValue="test@test.com"
+                  id="username"
+                  type="text"
+                  name="username"
+                  placeholder="Введіть ваше ім'я"
+                  required
                 />
               </div>
               <div className="grid gap-2">
-                <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
+                <Label htmlFor="email">Електронна пошта</Label>
+                <FormInput
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="ваша@пошта.com"
+                  required
+                />
+              </div>
+              <div className="grid gap-2">
+                <div className="flex items-center justify-between">
+                  <Label htmlFor="password">Пароль</Label>
+                  <small className="text-sm text-muted-foreground">
+                    Мінімум 6 символів
+                  </small>
                 </div>
                 <FormInput
                   id="password"
                   type="password"
                   name="password"
-                  defaultValue="secret"
+                  placeholder="••••••••"
+                  required
+                  minLength={6}
                 />
               </div>
+              <Button type="submit" className="mt-4 w-full">
+                Створити обліковий запис
+              </Button>
             </div>
           </Form>
         </CardContent>
-        <CardFooter className="flex-col gap-2">
-          <Button type="submit" className="w-full">
-            Register
-          </Button>
+        <CardFooter className="flex-col gap-4">
+          <p className="text-center text-sm text-muted-foreground">
+            Вже маєте обліковий запис?{" "}
+            <Link to="/login" className="text-primary hover:underline">
+              Увійти
+            </Link>
+          </p>
         </CardFooter>
       </Card>
     </main>

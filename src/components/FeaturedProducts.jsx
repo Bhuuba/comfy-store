@@ -3,7 +3,7 @@ import { ProductsGrid, SectionTitle } from "./index";
 const FeaturedProducts = () => {
   return (
     <div className="pt-24">
-      <SectionTitle text="featured products" />
+      <SectionTitle text="Популярні товари" />
       <ProductsGrid />
     </div>
   );
