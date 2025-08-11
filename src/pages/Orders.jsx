@@ -25,6 +25,7 @@ const ordersQuery = (params, user) => {
   };
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const loader =
   (store, queryClient) =>
   async ({ request }) => {
